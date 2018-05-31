@@ -11,4 +11,4 @@ to start the server cd into api-server and run -
 npm install
 
 then run 
-node server/server.js
+node server
