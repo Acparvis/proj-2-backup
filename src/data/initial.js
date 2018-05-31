@@ -6,4 +6,6 @@ export default Map({
 	categories: "",
 	detailPost: "",
 	detailPostComments: "",
+	filterSetting:0,
+	postList: "",
 });

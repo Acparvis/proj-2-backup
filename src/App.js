@@ -23,6 +23,11 @@ class App extends Component {
             <Controls />
             <PostList />
           </div> )} />
+          <Route path="/:category" exact render={ (props) => (
+            <div>
+              <Controls />
+              <PostList extra={props}/>
+            </div> )} />
           <Route path="/create" exact render={ () => (<CreatePage />)} />
           <Route path="/:category/:id" render={ () => (<ViewPostPage />)} />
 

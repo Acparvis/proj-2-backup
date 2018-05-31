@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
+import moment from 'moment';
 
 import {
 	fetchPosts,
@@ -84,6 +85,7 @@ class Post extends Component {
 				<h2>Author: {this.props.data.author}</h2>
 				<h2>Number of Comments: {this.props.data.commentCount}</h2>
 				<h2>Current Score: {this.props.data.voteScore}</h2>
+				<h2>Post Date: {moment(this.props.data.timestamp).format('LLL')}</h2>
 				<button onClick={ () => this.props.voteUp(this.props.data.id)}>Upvote</button>
 				<button onClick={ () => this.props.voteDown(this.props.data.id)}>Downvote</button>
 

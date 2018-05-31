@@ -38,3 +38,10 @@
   justify-content: center;
   align-items: center;
 }
+
+.controls-container{
+  display: flex;
+  justify-content:space-between;
+  max-width: 70%;
+  margin-left: 15%;
+}

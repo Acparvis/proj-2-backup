@@ -150,3 +150,29 @@ export function vote(id, direction) {
 					 .then(response => dispatch(viewPostComments(value.parentId)))
 					}
 			}
+
+
+//////////////////////////////////////////// filter actions
+
+export const CHANGE_FILTER = Symbol("CHANGE_FILTER");
+
+export const changeFilter = (value) => ({
+	type: CHANGE_FILTER,
+	value
+});
+
+export const SORT_POSTS = Symbol("SORT_POSTS");
+
+export const sortPosts = (value, data) => ({
+	type: SORT_POSTS,
+	value,
+	data
+});
+
+export function fetchSortPosts(value) {
+    return dispatch => {
+			axios.get('http://localhost:3001/posts', { headers: { 'Authorization': 'whatever-you-want' }})
+			 .then(response => dispatch(sortPosts(value, response.data)))
+
+    }
+}

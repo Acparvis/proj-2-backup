@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
+import moment from 'moment';
+
 
 import {
 	fetchPosts,
@@ -88,13 +90,19 @@ class PostDetail extends Component {
 		}
 
 	render() {
+
+		if (!this.props.data.title){
+			return (<h1>404 Post Not Found</h1>)
+		} else {
     return (
 			<div className="post-container">
+
 	      <h1>Title: {this.props.data.title}</h1>
 				<h2>Body: {this.props.data.body}</h2>
 				<h2>Author: {this.props.data.author}</h2>
 				<h2>Number of Comments: {this.props.comments ? this.props.comments.length : 0}</h2>
 				<h2>Current Score: {this.props.data.voteScore}</h2>
+				<h2>Post Date: {moment(this.props.data.timestamp).format('LLL')}</h2>
 				<button onClick={ () => this.props.voteUp(this.props.data.id)}>Upvote</button>
 				<button onClick={ () => this.props.voteDown(this.props.data.id)}>Downvote</button>
 
@@ -121,6 +129,7 @@ class PostDetail extends Component {
         </Modal>
 			</div>
     );
+	}
   }
 
 }
