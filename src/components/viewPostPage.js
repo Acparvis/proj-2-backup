@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import {Link, Route} from 'react-router-dom';
 import PostDetail from './postDetail';
 import CommentList from './commentList';
+import Controls from './controls'
 import {withRouter} from 'react-router-dom';
 
 
@@ -40,6 +41,12 @@ class ViewPostPage extends Component {
 
 
 	render() {
+		if (!this.props.post.category){
+			return (<div>
+				<Controls />
+				<h1>404 Post Not Found</h1>
+			</div>)
+		} else {
     return (
 				<div>
 					<Link to={'/'}>Go Back</Link>
@@ -51,6 +58,6 @@ class ViewPostPage extends Component {
 
     );
   }
-
+}
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ViewPostPage);

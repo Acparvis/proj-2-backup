@@ -68,8 +68,13 @@ class CreateForm extends Component {
 
   handleSubmit(event) {
 		event.preventDefault();
-    this.props.postCreate(this.state)
-		this.setState({ toDashboard: true})
+
+		if (this.state.category == "") {
+			return alert("Please select a category");
+		} else {
+			this.props.postCreate(this.state)
+			this.setState({ toDashboard: true})
+		}
   }
 
 

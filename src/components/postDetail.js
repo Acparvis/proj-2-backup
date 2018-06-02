@@ -91,9 +91,6 @@ class PostDetail extends Component {
 
 	render() {
 
-		if (!this.props.data.title){
-			return (<h1>404 Post Not Found</h1>)
-		} else {
     return (
 			<div className="post-container">
 
@@ -129,18 +126,8 @@ class PostDetail extends Component {
         </Modal>
 			</div>
     );
-	}
+
   }
 
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PostDetail);
-
-
-
-// Listed posts are displayed with the following:
-// 1) Title
-// 2) Author
-// 3) Number of comments
-// 4) Current score
-// 5) Voting mechanism to upvote or downvote the post
-// 6) Buttons or links for editing or deleting that post
